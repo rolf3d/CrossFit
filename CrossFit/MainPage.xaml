@@ -1,13 +1,25 @@
 ﻿<Page
-    x:Class="CrossFit.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:CrossFit"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ViewModel="using:CrossFit.ViewModel"
+    x:Class="CrossFit.MainPage"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.DataContext>
+        <ViewModel:WodViewModel/>
+    </Page.DataContext>
 
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <ListView x:Name="listView" HorizontalAlignment="Left" Height="442" Margin="139,102,0,0" VerticalAlignment="Top" Width="311" ItemsSource="{Binding WodListe}" SelectedItem="{Binding ValgtWorkOut, Mode=TwoWay}"  BorderBrush="Black" BorderThickness="2,2,2,0" SelectionChanged="listView_SelectionChanged" />
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="489,314,0,0" TextWrapping="Wrap" Text="{Binding ValgtWorkOut}" VerticalAlignment="Top" Height="161" Width="499" />
+        <TextBox x:Name="TBWodNavn" HorizontalAlignment="Left" Margin="489,102,0,0" TextWrapping="Wrap" Text="{Binding NewWod.wodname, Mode=TwoWay}" VerticalAlignment="Top" Width="146" PlaceholderText="Navn" ToolTipService.ToolTip="Navn" Header="Navn:" Background="#6697B7E6"/>
+        <TextBox x:Name="TBBeskrivelse" HorizontalAlignment="Left" Margin="652,102,0,0" TextWrapping="Wrap" Text="{Binding NewWod.beskrivelse, Mode=TwoWay}" VerticalAlignment="Top" Width="164" PlaceholderText="Beskrivelse" ToolTipService.ToolTip="Beskrivelse" Header="Beskrivelse:" Background="#6697B7E6"/>
+        <TextBox x:Name="TBGender" HorizontalAlignment="Left" Margin="881,102,0,0" TextWrapping="Wrap" Text="{Binding NewWod.gender, Mode=TwoWay}" VerticalAlignment="Top" Width="107" PlaceholderText="Køn" ToolTipService.ToolTip="Køn" Header="Køn:" Background="#6697B7E6"/>
+        <TextBox x:Name="TBMovement1" HorizontalAlignment="Left" Margin="489,172,0,0" TextWrapping="Wrap" Text="{Binding NewWod.movement1, Mode=TwoWay}" VerticalAlignment="Top" Width="146" PlaceholderText="Øvelse 1" ToolTipService.ToolTip="Øvelse 1" Header="Øvelse 1:" Background="#6697B7E6"/>
+        <TextBox x:Name="TBMovement2" HorizontalAlignment="Left" Margin="652,172,0,0" TextWrapping="Wrap" Text="{Binding NewWod.movement2, Mode=TwoWay}" VerticalAlignment="Top" Width="164" PlaceholderText="Øvelse 2" ToolTipService.ToolTip="Øvelse 2" Header="Øvelse 2:" Background="#6697B7E6"/>
+        <TextBox x:Name="TBNummer" HorizontalAlignment="Left" Margin="881,172,0,0" TextWrapping="Wrap" Text="{Binding NewWod.number, Mode=TwoWay}" VerticalAlignment="Top" Width="107" PlaceholderText="Nummer" ToolTipService.ToolTip="Nummer" Header="Nummer:" Background="#6697B7E6"/>
     </Grid>
 </Page>
