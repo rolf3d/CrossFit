@@ -7,11 +7,14 @@ using System.Text;
 using System.Threading.Tasks;
 using CrossFit.Model;
 
+
 namespace CrossFit.ViewModel
 {
     public class WodViewModel : INotifyPropertyChanged
     {
         public Model.WodList WodListe { get; set; }
+
+        //public RelayCommand AddWodCommand { get; set; }
 
         private Model.Wod valgtWorkOut;
 
@@ -23,15 +26,31 @@ namespace CrossFit.ViewModel
             }
         }
 
+        public AddWodCommand AddWodCommand { get; set; }
+        public RelayCommand RemoveCommand { get; set; }
+        public RemoveWodCommand RemoveWodCommand { get; set; }
+
         public Model.Wod NewWod { get; set; }
 
 
 
         public WodViewModel()
         {
+            NewWod = new Model.Wod();
             WodListe = new Model.WodList();
             valgtWorkOut = new Model.Wod();
-            
+            AddWodCommand = new AddWodCommand(AddNewWod);
+            RemoveWodCommand = new RemoveWodCommand(RemoveWod);
+        }
+
+        public void AddNewWod()
+        {
+            WodListe.Add(NewWod);
+        }
+
+        public void RemoveWod()
+        {
+            WodListe.Remove(ValgtWorkOut);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

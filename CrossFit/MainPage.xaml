@@ -12,7 +12,10 @@
         <ViewModel:WodViewModel/>
     </Page.DataContext>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid BorderThickness="4" CornerRadius="20">
+        <Grid.Background>
+            <ImageBrush Stretch="None" ImageSource="Assets/crossfit.jpg" Opacity="0.5"/>
+        </Grid.Background>
         <ListView x:Name="listView" HorizontalAlignment="Left" Height="442" Margin="139,102,0,0" VerticalAlignment="Top" Width="311" ItemsSource="{Binding WodListe}" SelectedItem="{Binding ValgtWorkOut, Mode=TwoWay}"  BorderBrush="Black" BorderThickness="2,2,2,0" SelectionChanged="listView_SelectionChanged" />
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="489,314,0,0" TextWrapping="Wrap" Text="{Binding ValgtWorkOut}" VerticalAlignment="Top" Height="161" Width="499" />
         <TextBox x:Name="TBWodNavn" HorizontalAlignment="Left" Margin="489,102,0,0" TextWrapping="Wrap" Text="{Binding NewWod.wodname, Mode=TwoWay}" VerticalAlignment="Top" Width="146" PlaceholderText="Navn" ToolTipService.ToolTip="Navn" Header="Navn:" Background="#6697B7E6"/>
@@ -21,5 +24,7 @@
         <TextBox x:Name="TBMovement1" HorizontalAlignment="Left" Margin="489,172,0,0" TextWrapping="Wrap" Text="{Binding NewWod.movement1, Mode=TwoWay}" VerticalAlignment="Top" Width="146" PlaceholderText="Øvelse 1" ToolTipService.ToolTip="Øvelse 1" Header="Øvelse 1:" Background="#6697B7E6"/>
         <TextBox x:Name="TBMovement2" HorizontalAlignment="Left" Margin="652,172,0,0" TextWrapping="Wrap" Text="{Binding NewWod.movement2, Mode=TwoWay}" VerticalAlignment="Top" Width="164" PlaceholderText="Øvelse 2" ToolTipService.ToolTip="Øvelse 2" Header="Øvelse 2:" Background="#6697B7E6"/>
         <TextBox x:Name="TBNummer" HorizontalAlignment="Left" Margin="881,172,0,0" TextWrapping="Wrap" Text="{Binding NewWod.number, Mode=TwoWay}" VerticalAlignment="Top" Width="107" PlaceholderText="Nummer" ToolTipService.ToolTip="Nummer" Header="Nummer:" Background="#6697B7E6"/>
+        <Button x:Name="button"  HorizontalAlignment="Left" Margin="847,544,0,0" VerticalAlignment="Top" Command="{Binding AddWodCommand}" Content="Add New" />
+        <Button x:Name="button1" Content="Remove" HorizontalAlignment="Left" Margin="1015,544,0,0" VerticalAlignment="Top" Command="{Binding RemoveWodCommand}" />
     </Grid>
 </Page>
