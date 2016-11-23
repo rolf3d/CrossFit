@@ -9,7 +9,6 @@ namespace CrossFit.Model
     public class Wod
     {
         public string wodname { get; set; }
-        public bool gender { get; set; }
         public string beskrivelse { get; set; }
         public string movement1 { get; set; }
         public string movement2 { get; set; }
@@ -17,7 +16,7 @@ namespace CrossFit.Model
 
         public override string ToString()
         {
-            return "Navn: " + wodname + " \n" + "Beskrivelse: " + beskrivelse + "\n" + "For: " + gender + " \n" + "Øvelse 1: " + movement1 + "\n" + "Øvelse 2: " + movement2 + "\n" + "Nummer: " + number;
+            return "Navn: " + wodname + " \n" + "Beskrivelse: " + beskrivelse + " \n" + "Øvelse 1: " + movement1 + "\n" + "Øvelse 2: " + movement2 + "\n" + "Nummer: " + number;
         }
     }
 }
