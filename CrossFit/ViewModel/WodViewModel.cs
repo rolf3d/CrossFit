@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Storage;
 using CrossFit.Model;
 using Newtonsoft.Json;
 
@@ -13,7 +14,7 @@ namespace CrossFit.ViewModel
 {
     public class WodViewModel : INotifyPropertyChanged
     {
-        public string JsonWodListe { get; set; }
+        //public string JsonWodListe { get; set; }
         public Model.WodList WodListe { get; set; }
         List<Wod> CsharpListe = new List<Wod>();
         //public RelayCommand AddWodCommand { get; set; }
@@ -35,7 +36,8 @@ namespace CrossFit.ViewModel
         public LoadWodCommand LoadWodCommand { get; set; }
         public Model.Wod NewWod { get; set; }
 
-
+        StorageFolder localfolder = null;
+        private readonly string filnavn = "JsonText.json";
 
         public WodViewModel()
         {
@@ -44,9 +46,10 @@ namespace CrossFit.ViewModel
             valgtWorkOut = new Model.Wod();
             AddWodCommand = new AddWodCommand(AddNewWod);
             RemoveWodCommand = new RemoveWodCommand(RemoveWod);
-            SaveWodCommand = new SaveWodCommand(SaveWodList);
-            //LoadWodCommand = new LoadWodCommand(LoadWodListe);
-           
+            localfolder = ApplicationData.Current.LocalFolder;
+            SaveWodCommand = new SaveWodCommand(GemDataTilDiskAsync);
+            LoadWodCommand = new LoadWodCommand(HentDataFraDiskAsync);
+            //string Jsontext = this.WodListe.GetJson();
         }
 
         public void AddNewWod()
@@ -60,11 +63,26 @@ namespace CrossFit.ViewModel
             WodListe.Remove(ValgtWorkOut);
         }
 
-        public void SaveWodList()
+
+        public async void HentDataFraDiskAsync()
         {
-           string JsonWodListe = JsonConvert.SerializeObject(WodListe);
             
         }
+        /// <summary>
+        /// GEmmer Json data til liste i localfolder
+        /// </summary>
+        public async void GemDataTilDiskAsync()
+        {
+            string jsonText = this.WodListe.GetJson();
+            StorageFile file = await localfolder.CreateFileAsync(filnavn, CreationCollisionOption.ReplaceExisting);
+            await FileIO.WriteTextAsync(file, jsonText);
+        }
+
+        //public void SaveWodList()
+        //{
+        //   string JsonWodListe = JsonConvert.SerializeObject(WodListe);
+            
+        //}
 
         //public void LoadWodListe()
         //{
