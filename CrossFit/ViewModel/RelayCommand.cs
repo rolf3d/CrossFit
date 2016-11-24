@@ -4,17 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using CrossFit.ViewModel;
 
-namespace CrossFit.ViewModel
+namespace CrossFit
 {
-    public class LoadWodCommand : ICommand
+    public class RelayCommand : ICommand
     {
         private readonly Action execute;
 
-        public LoadWodCommand(Action execute)
+        public RelayCommand(Action execute)
         {
             this.execute = execute;
         }
+
         public bool CanExecute(object parameter)
         {
             return true;
@@ -22,9 +24,10 @@ namespace CrossFit.ViewModel
 
         public void Execute(object parameter)
         {
-            execute();
+            this.execute();
         }
 
         public event EventHandler CanExecuteChanged;
+
     }
 }

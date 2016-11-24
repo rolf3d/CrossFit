@@ -16,18 +16,20 @@
         <Grid.Background>
             <ImageBrush Stretch="None" ImageSource="Assets/crossfit.jpg" Opacity="0.5"/>
         </Grid.Background>
-        <ListView x:Name="listView" HorizontalAlignment="Left" Height="442" Margin="139,102,0,0" VerticalAlignment="Top" Width="311" ItemsSource="{Binding WodListe}" SelectedItem="{Binding ValgtWorkOut, Mode=TwoWay}"  BorderBrush="Black" BorderThickness="2,2,2,0" SelectionChanged="listView_SelectionChanged" />
+        <ListView x:Name="listView" HorizontalAlignment="Left" Height="478" Margin="143,106,0,0" VerticalAlignment="Top" Width="311" ItemsSource="{Binding WodListe}" SelectedItem="{Binding ValgtWorkOut, Mode=TwoWay}"  BorderBrush="Black" BorderThickness="2,2,2,0" SelectionChanged="listView_SelectionChanged" />
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="493,318,0,0" TextWrapping="Wrap" Text="{Binding ValgtWorkOut}" VerticalAlignment="Top" Height="161" Width="260" />
-        <TextBox x:Name="TBWodNavn" HorizontalAlignment="Left" Margin="489,102,0,0" TextWrapping="Wrap" Text="{Binding NewWod.wodname, Mode=TwoWay}" VerticalAlignment="Top" Width="146" PlaceholderText="Navn" ToolTipService.ToolTip="Navn" Header="Navn:" Background="#6697B7E6"/>
-        <TextBox x:Name="TBBeskrivelse" HorizontalAlignment="Left" Margin="652,102,0,0" TextWrapping="Wrap" Text="{Binding NewWod.beskrivelse, Mode=TwoWay}" VerticalAlignment="Top" Width="164" PlaceholderText="Beskrivelse" ToolTipService.ToolTip="Beskrivelse" Header="Beskrivelse:" Background="#6697B7E6"/>
+        <TextBox x:Name="TBWodNavn" HorizontalAlignment="Left" Margin="489,102,0,0" TextWrapping="Wrap" Text="{Binding NewWod.wodname, Mode=TwoWay}" VerticalAlignment="Top" Width="150" PlaceholderText="Navn" ToolTipService.ToolTip="Navn" Header="Navn:" Background="#6697B7E6" />
+        <TextBox x:Name="TBBeskrivelse" HorizontalAlignment="Left" Margin="652,102,0,0" TextWrapping="Wrap" Text="{Binding NewWod.beskrivelse, Mode=TwoWay}" VerticalAlignment="Top" Width="150" PlaceholderText="Beskrivelse" ToolTipService.ToolTip="Beskrivelse" Header="Beskrivelse:" Background="#6697B7E6"/>
 
-        <TextBox x:Name="TBMovement1" HorizontalAlignment="Left" Margin="489,172,0,0" TextWrapping="Wrap" Text="{Binding NewWod.movement1, Mode=TwoWay}" VerticalAlignment="Top" Width="146" PlaceholderText="Øvelse 1" ToolTipService.ToolTip="Øvelse 1" Header="Øvelse 1:" Background="#6697B7E6"/>
-        <TextBox x:Name="TBMovement2" HorizontalAlignment="Left" Margin="652,172,0,0" TextWrapping="Wrap" Text="{Binding NewWod.movement2, Mode=TwoWay}" VerticalAlignment="Top" Width="164" PlaceholderText="Øvelse 2" ToolTipService.ToolTip="Øvelse 2" Header="Øvelse 2:" Background="#6697B7E6"/>
-        <TextBox x:Name="TBNummer" HorizontalAlignment="Left" Margin="881,172,0,0" TextWrapping="Wrap" Text="{Binding NewWod.number, Mode=TwoWay}" VerticalAlignment="Top" Width="107" PlaceholderText="0" ToolTipService.ToolTip="Nummer" Header="Nummer:" Background="#6697B7E6"/>
-        <Button x:Name="button"  HorizontalAlignment="Left" Margin="847,544,0,0" VerticalAlignment="Top" Command="{Binding AddWodCommand}" Content="Add New" />
-        <Button x:Name="button1" Content="Remove" HorizontalAlignment="Left" Margin="1015,544,0,0" VerticalAlignment="Top" Command="{Binding RemoveWodCommand}" />
-        <TextBox x:Name="textBox" Margin="372,7,323,0" TextWrapping="Wrap" Text="Crossfit Workout" VerticalAlignment="Top" Width="585" Height="84" FontSize="45" Background="#00AA2F2F" Foreground="#FFE0E0E0" HorizontalAlignment="Center" BorderThickness="0"/>
-        <Button x:Name="GemKnap" Content="Gem Liste" HorizontalAlignment="Left" Margin="493,548,0,0" VerticalAlignment="Top" Command="{Binding SaveWodCommand}"/>
-        <Button x:Name="Load_Liste" Content="Load List" HorizontalAlignment="Left" Margin="619,552,0,0" VerticalAlignment="Top" Command="{Binding LoadWodCommand}"/>
+        <TextBox x:Name="TBMovement1" HorizontalAlignment="Left" Margin="489,172,0,0" TextWrapping="Wrap" Text="{Binding NewWod.movement1, Mode=TwoWay}" VerticalAlignment="Top" Width="150" PlaceholderText="Øvelse 1" ToolTipService.ToolTip="Øvelse 1" Header="Øvelse 1:" Background="#6697B7E6"/>
+        <TextBox x:Name="TBMovement2" HorizontalAlignment="Left" Margin="652,172,0,0" TextWrapping="Wrap" Text="{Binding NewWod.movement2, Mode=TwoWay}" VerticalAlignment="Top" Width="150" PlaceholderText="Øvelse 2" ToolTipService.ToolTip="Øvelse 2" Header="Øvelse 2:" Background="#6697B7E6"/>
+        <TextBox x:Name="TBNummer" HorizontalAlignment="Left" Margin="881,172,0,0" TextWrapping="Wrap" Text="{Binding NewWod.number, Mode=TwoWay}" VerticalAlignment="Top" Width="50" PlaceholderText="0" ToolTipService.ToolTip="Nummer" Header="Nummer:" Background="#6697B7E6" Height="60"/>
+        <Button x:Name="button"  HorizontalAlignment="Left" Margin="853,566,0,0" VerticalAlignment="Top" Command="{Binding AddWodCommand}" Content="Tilføj" Width="90" Height="30" Foreground="Black" />
+        <Button x:Name="button1" Content="Fjern" HorizontalAlignment="Left" Margin="1010,566,0,0" VerticalAlignment="Top" Command="{Binding RemoveWodCommand}" Width="90" Height="30" Foreground="Black" />
+        <Button x:Name="GemKnap" Content="Gem Liste" HorizontalAlignment="Left" Margin="501,565,0,0" VerticalAlignment="Top" Command="{Binding SaveWodCommand}" Height="30" Width="90" Foreground="Black" Background="#33000000"/>
+        <Button x:Name="Load_Liste" Content="Hent Liste" HorizontalAlignment="Left" Margin="641,566,0,0" VerticalAlignment="Top" Command="{Binding LoadWodCommand}" Height="30" Width="90" Foreground="Black"/>
+        <StackPanel HorizontalAlignment="Left" Height="72" Margin="151,12,0,0" VerticalAlignment="Top" Width="798">
+            <TextBlock x:Name="textBlock1" TextWrapping="Wrap" Text="Crossfit Workout Øvelser" Height="72" FontSize="45"/>
+        </StackPanel>
     </Grid>
 </Page>
